@@ -90,7 +90,7 @@ def main():
             move = getInput(playerHand, money - bet)
             # Handle player's input (Hit, Stand, Double-down)
             if move == '3':
-                additionalBet = getBet(min(bet, (money - bet)))
+                additionalBet = getBet(min(bet, (money - bet)), playerID)
                 bet += additionalBet
                 print('Bet increased to {}'.format(bet))
                 print('Bet:', bet)
@@ -250,6 +250,7 @@ def getInput(playerHand, money):
         actions.append('3: Double-down')
     for action in actions:
         print(action)
+    print('Select a number')
     move = input('> ').upper().strip()
     if move in ('1', '2'):
         return move
